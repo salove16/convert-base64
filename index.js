@@ -7,7 +7,9 @@ const PORT = process.env.PORT || 8080
 
 app.post('/base64',async(req,res)=>{
 try {
-    const data= btoa(req.body.pan)
+    const pan=req.body.pan
+    const upCasePan=pan.toUpperCase()
+    const data= btoa(upCasePan)
     res.status(200).send({pan:data})
 
 } catch (error) {
